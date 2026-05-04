@@ -18,7 +18,7 @@ Instacart needed deeper insight into customer purchasing behavior to improve tar
 3. **How do demographics relate to spending?** Age, income, and regional patterns.
 4. **Which customer profiles are highest value?** Multi-variable profiling.
 
-**Result:** 6 validated customer segments, 9 charts, and 6 actionable business findings across a dataset of ~32 million rows and ~206,000 customers.
+**Result:** 6 validated customer segments, 9 charts, and 6 actionable business findings across ~32 million rows and ~206,000 customers.
 
 ---
 
@@ -26,37 +26,50 @@ Instacart needed deeper insight into customer purchasing behavior to improve tar
 
 | Notebook | Description |
 |---|---|
-| [`4.2 IC Data import and descriptive analysis.ipynb`](4.2%20IC%20Data%20import%20and%20descriptive%20analysis.ipynb) | Import orders + products, basic profiling |
-| [`4.3 IC Data wrangling and subsetting.ipynb`](4.3%20IC%20Data%20wrangling%20and%20subsetting.ipynb) | Rename columns, create subsets, export cleaned data |
-| [`4.4 IC Data consistency checks.ipynb`](4.4%20IC%20Data%20consistency%20checks.ipynb.ipynb) | Fix mixed types, handle 260K missing values |
-| [`4.5 IC Combining & Exporting Data.ipynb`](4.5%20IC%20Combining%20%26%20Exporting%20Data.ipynb.ipynb) | Merge orders + order_products + products |
-| [`4.6 IC Deriving New Variables.ipynb`](4.6%20IC%20Deriving%20New%20Variables.ipynb.ipynb) | Create price_label, busiest_day, busiest_period_of_day |
-| [`4.7 IC Grouping Data.ipynb`](4.7%20IC%20Grouping%20Data.ipynb) | Loyalty flag, spending flag, order frequency flag |
-| [`4.8 IC Customer Data Wrangling.ipynb`](4.8%20IC%20Customer%20Data%20Wrangling.ipynb) | Merge 206K customer demographics |
-| [`4.8 IC Visualizations.ipynb`](4.8%20IC%20Visualizations.ipynb) | 8 charts: orders, loyalty, prices, demographics |
-| [`4.9 IC Final Analysis & Profiling.ipynb`](4.9%20IC%20Final%20Analysis%20%26%20Profiling.ipynb) | PII removal, regional segmentation, customer profiles |
+| `4.1 IC Importing libraries and Python data types.ipynb` | Environment setup and Python data types |
+| `4.2 IC Data import and descriptive analysis.ipynb` | Import orders + products, basic profiling |
+| `4.3 IC Data wrangling and subsetting.ipynb` | Rename columns, create subsets, export cleaned data |
+| `4.4 IC Data consistency checks.ipynb` | Fix mixed types, handle 260K missing values |
+| `4.5 IC Combining & Exporting Data.ipynb` | Merge orders + order_products + products |
+| `4.5 IC Merging with Products.ipynb` | Product-level merge and validation |
+| `4.6 IC Deriving New Variables.ipynb` | Create price_label, busiest_day, busiest_period_of_day |
+| `4.7 IC Grouping Data.ipynb` | Loyalty flag, spending flag, order frequency flag |
+| `4.8 IC Customer Data Wrangling.ipynb` | Merge 206K customer demographics |
+| `4.8 IC Visualizations.ipynb` | 8 charts: orders, loyalty, prices, demographics |
+| `4.9 IC Final Analysis & Profiling.ipynb` | PII removal, regional segmentation, customer profiles |
 
 ---
 
 ## Key Findings
 
 **1. Orders peak between 9 AM and 4 PM**
-Instacart is a daytime platform. The 10:00 AM hour is the single busiest period. Late-night promotions are unlikely to move volume.
+The 10:00 AM hour is the single busiest period. Late-night promotions are unlikely to move volume.
 
-**2. Product price is stable across all hours**
-Average basket price does not vary meaningfully by time of day. Promotions should target segments, not hours.
+![Order Hour Distribution](instacart-order-hour.png)
 
-**3. Regular customers drive the most order volume**
+**2. Regular customers drive the most order volume**
 While Loyal customers (20+ orders) have higher per-order value, Regular customers (11–20 orders) generate the most total volume. A loyalty conversion strategy has the highest revenue upside.
 
-**4. Adults (30–49) are the dominant demographic**
-This age group represents the largest share of customers. Marketing should optimize for family-stage purchasing: household staples, fresh produce, and meal planning.
+![Loyalty Distribution](instacart-loyalty.png)
 
-**5. Middle-income customers are the core demographic**
-The $40k–$80k income range dominates. Core catalog pricing should remain accessible while premium placement targets the high-income segment.
+**3. Adults (30–49) are the dominant demographic**
+Marketing should optimize for family-stage purchasing: household staples, fresh produce, and meal planning.
 
-**6. High-frequency customers are the largest single group**
-Customers with 20+ orders outnumber both medium and low-frequency groups. Retention (subscriptions, loyalty rewards) has a larger addressable base than acquisition.
+![Age Group Distribution](instacart-age-group.png)
+
+**4. Middle-income customers are the core demographic**
+The $40k–$80k income range dominates. Core catalog pricing should remain accessible while premium placement targets high-income segments.
+
+![Income Group Distribution](instacart-income-group.png)
+
+**5. High-frequency customers are the largest single group**
+Customers with 20+ orders outnumber both medium and low-frequency groups. Retention has a larger addressable base than acquisition.
+
+![Order Frequency Distribution](instacart-order-frequency.png)
+
+**6. Adults and Middle-Aged high-frequency customers are the highest-value segments**
+
+![Customer Profile Heatmap](instacart-profile-heatmap.png)
 
 ---
 
@@ -96,16 +109,6 @@ Customers with 20+ orders outnumber both medium and low-frequency groups. Retent
 | Departments | 21 |
 | U.S. states | 50 |
 | U.S. Census regions | 4 |
-
----
-
-## Installation
-
-```bash
-git clone https://github.com/ageelalramadhan/Project-4-Instacart-.git
-cd Project-4-Instacart-
-pip install -r requirements.txt
-```
 
 ---
 
